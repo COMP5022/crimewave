@@ -1,0 +1,18 @@
+
+#map {
+height: 50%;
+width: 50%;
+border: 1mm black solid;
+
+}
+
+#container{
+    height: 100%;
+}
+
+html,
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
