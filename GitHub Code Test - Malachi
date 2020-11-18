@@ -1,0 +1,2 @@
+number = int(input("What is a number between 1 and 10? ")
+print = ("A number between 1 and 10 is ", number)
