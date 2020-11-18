@@ -1,2 +1,4 @@
+This is code that would run in Python. This was created as a test for myself (Malachi) to understand how to pull and commit a new file to a Git repository
+
 number = int(input("What is a number between 1 and 10? ")
 print = ("A number between 1 and 10 is ", number)
