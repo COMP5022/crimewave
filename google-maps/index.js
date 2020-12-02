@@ -57,7 +57,6 @@ function displayCoordinates(pnt) {
 				url: "https://data.police.uk/api/" + data.force + "/" + data.neighbourhood + "/boundary", // get polygon of boundary
 				data: {},
 				success: function (data) {
-					console.log(data);
 					let poly = [];
 					for (let index = 0; index < data.length; index++) {
 						let coords = {
@@ -123,7 +122,6 @@ function displayCoordinates(pnt) {
 			url: "https://data.police.uk/api/crimes-no-location?category=all-crime&force="+force+"&date="+date,
 			data: {},
 			success: function (data) {
-				console.log(data);
 				document.getElementById("crimeStats").innerHTML = data.length;
 				document.getElementById("crimeRegion").innerHTML = force;
 
