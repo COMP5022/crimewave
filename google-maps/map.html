@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Map</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="like_button.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_knxG1GWAzITsxVGzJpF_lZ4-DXgF5m4&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./index.js"></script>
-  </head>
-  <body>
-    <div id="container">
-        <input id="postcode" type="textbox">
-        <button onclick="codeAddress()">Submit</button>
-        <div id="map"></div>
-    </div>
-  </body>
+
+<head>
+	<title>Crime Wave</title>
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_knxG1GWAzITsxVGzJpF_lZ4-DXgF5m4&callback=initMap&libraries=&v=weekly"
+		defer></script>
+	<link rel="stylesheet" type="text/css" href="./style.css" />
+	<script src="./index.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<div class="mapContainer">
+			<input id="postcode" type="textbox">
+			<button onclick="codeAddress()">Submit</button>
+			<div id="map"></div>
+			<div id="crimeInfo" class="crimeInfo">
+				<h2>Contact Info</h2>
+				<div id="info">
+					<p<span>Name: </span><span id="forceName"></span></p>
+					<p<span>Website: </span><a id="forceWebsite"></a></p>
+					<p><span>Email: </span><a id="forceEmail"></a></p>
+					<p><span>Facebook: </span><a id="forceFacebook"></a></p>
+					<p><span>Telephone: </span><span id="forceTelephone"></span></p>
+					<p><span>Twitter: </span><a id="forceTwitter"></a></p>
+				</div>
+			</div>
+			<div id="crimeInfoState" class="crimeInfo">
+				<h2>Street Crime</h2>
+				<p><h3 id="crimeRegion"></h3></p>
+				<p><label for="start">Month:</label>
+				<input type="month" id="crimeMonth" name="start" min="2018-03" value="2019-05"></p>
+				<p<span>Number of Crimes: </span><span id="crimeStats"></span></p>
+
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+</script>
+
 </html>

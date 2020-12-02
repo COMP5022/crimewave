@@ -1,18 +1,48 @@
-
 #map {
-height: 50%;
-width: 50%;
-border: 1mm black solid;
-
+    height: 100%;
+    width: 75%;
 }
 
-#container{
+
+#container {
     height: 100%;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 60%;
+    margin-left: 12.5%;
+    margin-top: 5%;
+}
+
+.crimeInfo {
+    float: left;
+    border: 2px black solid;
+    border-radius: 20px;
+    position: relative;
+    height: 40%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 20%;
+    margin-top: 3%;
+    margin-left: 10%;
+    text-align: center;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.crimeInfo::-webkit-scrollbar { /* Hide scroll but keep functionality */
+    display: none;
+}
+
+#info {
+    text-align: left;
+    margin-left: 5%;
 }
 
 html,
 body {
-height: 100%;
-margin: 0;
-padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
