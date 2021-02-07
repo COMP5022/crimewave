@@ -3,3 +3,9 @@ crimewave/__pycache__/
 crimewave/env/
 
 env/
+
+crimewave_app/__pycache__/
+
+crimewave_app/migrations/__pycache__/
+
+.vscode/

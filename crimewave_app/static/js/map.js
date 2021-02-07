@@ -19,19 +19,10 @@ function initMap() {
 	});
 }
 
+
+
 function codeAddress() {
-	var address = document.getElementById('postcode').value;
-	geocoder.geocode({
-		'address': address
-	}, function (results, status) {
-		if (status == 'OK') {
-			map.setCenter(results[0].geometry.location);
-			console.log(results[0].geometry.location);
-			displayCoordinates(results[0].geometry.location);
-		} else {
-			alert('Geocode was not successful for the following reason: ' + status);
-		}
-	});
+	
 }
 
 function displayCoordinates(pnt) {
@@ -113,9 +104,7 @@ function displayCoordinates(pnt) {
 	}
 
 	function getCrime(force){
-		console.log(force);
 		let date = document.getElementById("crimeMonth").value;
-		console.log(date);
 		$.ajax({
 			type: 'GET',
 			dataType: "json",
