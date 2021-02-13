@@ -2,11 +2,20 @@ var express = require('express');
 var router = express.Router();
 
 /**
- * Route for Index Page
+ * Route for Landing Page
  * @author Maclan
  */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+});
+
+
+/**
+ * Route for home Page
+ * @author Maclan
+ */
+router.get('/home', function(req, res, next) {
+  res.render('home', { title: 'Express' });
 });
 
 /**

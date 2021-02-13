@@ -1,66 +1,39 @@
 <head>
-  <%- include ('../partials/javascript.ejs') %>
-  <%- include ('../partials/stylesheets.ejs') %>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Landing Page Idea</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="/css/landing-page.css" />
 </head>
 
 <body>
 
-  
+    <div class="wrapper">
+        <h1 class="landing-page-title">Crime Wave</h1>
 
-  <div id="wrapper">
-    
-    <%- include ('../partials/sidebar.ejs') %>
-    <div class="content">
-      <div class="map-container">
+        <p class="landing-page-desc"> Crime Wave is an intuitive life saving Application that notifies users about crime in their area, using state of the art tracking technology</p> <!-- Description -->
+
+        <div class="landing-page-email">
+            <span class="email-text">Insert Email</span>
+            <input class="email-textbox" type="text" placeholder="Email">
+            <input class="email-button" type="button" value="Keep Me Updated">
+        </div>
         <div>
-          <input class="form-control postcode-input" id="postcode" type="textbox" placeholder="Type in address...">
+            <form action="https://www.apple.com/uk/app-store/">
+                <!-- Form, link to somewhere -->
+                <input class="crimwave-button" type="submit" value="App Store" />
+            </form>
+            <a href="/home"><button>Go to CrimeWave</button></a>
+            <form action="https://play.google.com/store">
+                <!-- Form, link to somewhere -->
+                <input class="crimwave-button" type="submit" value="Play Store" />
+            </form>
         </div>
-        <div id="map"></div>
-        <div id="crimeInfo" class="crimeInfo">
-          <h2>Contact Info</h2>
-          <div id="info">
-            <p<span>Name: </span><span id="forceName"></span></p>
-              <p<span>Website: </span><a id="forceWebsite"></a></p>
-                <p><span>Email: </span><a id="forceEmail"></a></p>
-                <p><span>Facebook: </span><a id="forceFacebook"></a></p>
-                <p><span>Telephone: </span><span id="forceTelephone"></span></p>
-                <p><span>Twitter: </span><a id="forceTwitter"></a></p>
-          </div>
-        </div>
-        <div id="crimeInfoState" class="crimeInfo">
-          <h2>Street Crime</h2>
-          <p>
-            <h3 id="crimeRegion"></h3>
-          </p>
-          <p><label for="start">Month:</label>
-            <input type="month" id="crimeMonth" name="start" min="2018-03" value="2019-05"></p>
-          <p<span>Number of Crimes: </span><span id="crimeStats"></span></p>
-
-        </div>
-      </div>
     </div>
 
-    <%- include ('../partials/footer.ejs') %>
-
-
 </body>
-<script>
-  $(document).ready(function () {
 
-    $('#postcode').keyup(function (e) {
-      if (e.keyCode == 13) {
-        var address = document.getElementById('postcode').value;
-        geocoder.geocode({
-          'address': address
-        }, function (results, status) {
-          if (status == 'OK') {
-            map.setCenter(results[0].geometry.location);
-            displayCoordinates(results[0].geometry.location);
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
-    });
-  })
+<script>
+
 </script>
+
