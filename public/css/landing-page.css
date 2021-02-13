@@ -1,0 +1,62 @@
+/* Body of page (has the background image)*/
+body {
+    background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1413&q=80') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Wraps all elements*/
+.wrapper{
+    position: fixed;
+    top: 19%;
+    left: 16%;
+    text-align: center;
+    width: 700px;
+    border: 3px solid white;
+}
+
+/* Title */
+.landing-page-title{
+    color: white;
+    font-size: 120px;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+}
+
+/* Button */
+.crimwave-button{
+
+}
+
+/* Description*/
+.landing-page-desc{
+    color: white;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* Email wrapper for all elements involving email */
+.landing-page-email{
+    color: white;
+    float: left;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+}
+
+/* Email Text */
+.email-text{
+
+}
+
+/* Email Textbox */
+.email-textbox{
+
+}
+
+/* Email Button */
+.email-button{
+
+}
