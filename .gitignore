@@ -1,11 +1,15 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-crimewave/__pycache__/
-crimewave/env/
+pids
+logs
+results
+build
 
-env/
-
-crimewave_app/__pycache__/
-
-crimewave_app/migrations/__pycache__/
-
-.vscode/
+node_modules
