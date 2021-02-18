@@ -1,0 +1,61 @@
+body {
+    background: url(images/thumb-impression-1578630.jpg)no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Wraps all elements*/
+.wrapper{
+    position: fixed;
+    top: 19%;
+    left: 16%;
+    text-align: center;
+    width: 700px;
+    border: 3px solid white;
+}
+
+/* Title */
+.landing-page-title{
+    color: white;
+    font-size: 120px;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+}
+
+/* Button */
+.crimwave-button{
+
+}
+
+/* Description*/
+.landing-page-desc{
+    color: white;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* Email wrapper for all elements involving email */
+.landing-page-email{
+    color: white;
+    float: left;
+    font-family: Andale Mono, monospace;
+    font-weight: bold;
+}
+
+/* Email Text */
+.email-text{
+
+}
+
+/* Email Textbox */
+.email-textbox{
+
+}
+
+/* Email Button */
+.email-button{
+
+}
