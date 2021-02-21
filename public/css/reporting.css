@@ -1,0 +1,46 @@
+.reporting-container{
+    margin: 100px;
+    margin-top: 50px;
+    width: 50%;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+}
+
+.crimetype-dropdown{
+    border: 1px solid #ced4da !important;  
+}
+
+.reporting-inputs{
+    margin: 10px;
+}
+
+.crime-type-radio{
+    margin: 0px 0px 0px 25px;
+}
+
+.radio-options{
+    margin-bottom: 20px;
+}
+
+.reporting-content{
+    padding: 10px 100px 100px 100px
+
+}
+
+.reporting-title{
+    padding: 50px 10px 10px 100px;
+}
+
+.sectionTitles{
+    font-size: xx-large !important;
+}
+
+#ML{
+    width: 100%;
+    height: 10rem;
+}
+
+
