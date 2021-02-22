@@ -6,7 +6,9 @@ lib-cov
 *.out
 *.pid
 *.gz
-
+public/all-police-data
+public/police-data/
+public/police-data-geoson
 pids
 logs
 results
