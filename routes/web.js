@@ -27,6 +27,15 @@ router.get('/report', function(req, res, next){
 });
 
 /**
+ * Route for Reported Page
+ * @author Maclan
+ */
+router.get('/reported', function(req, res, next){
+  res.render('reported');
+});
+
+
+/**
  * Route for About Page
  * @author Maclan
  */
