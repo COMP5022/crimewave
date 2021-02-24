@@ -207,3 +207,56 @@ body {
   background-color: #333;
   height: 50px;
 }
+
+.login-modal{
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  z-index: 9999;
+  border-radius: 20px;
+  border: 1px solid grey;
+  left: 35%;
+  background-color: white;
+  top: 5%;
+  display: none;
+  
+}
+
+.login-modal-background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #080d11;
+  opacity: 0.6;
+  z-index: 10;
+  display: none;
+}
+
+.login-modal.active{
+  display: unset;
+}
+
+.login-modal-background.active{
+  display: unset;
+}
+
+.login-modal-content{
+  margin: 50px;
+}
+
+.login-input{
+  margin: 20px 20px 20px 0px;
+}
+
+.toggle-login{
+  cursor: pointer;
+}
+
+.auth-bar{
+  width: 100%;
+  height: 50px;
+}
+
+#toggle-login-button{
+  margin: 10px;
+}

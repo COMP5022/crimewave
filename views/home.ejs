@@ -6,8 +6,10 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js">
+  </script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css">
 
 </head>
 
@@ -15,12 +17,37 @@
 
 
 
+
+
+
+
   <div id="wrapper">
 
+
     <%- include ('../partials/sidebar.ejs') %>
+
+    <div class="login-modal-background"></div>
+
+    <div class="login-modal">
+      <div class="login-modal-content">
+
+        <a class="toggle-login" style="float: right;"><i class="fas fa-window-close"></i></a>
+
+        <h3>Login</h3>
+
+        <input type="text" name="" class="form-control login-input" placeholder="Username...">
+        <input type="text" name="" class="form-control login-input" placeholder="Password...">
+
+        <input type="button" class="login-button" value="Login">
+      </div>
+    </div>
+
+    <div class="auth-bar">
+      <input type="button" value="Login" class="toggle-login" id="toggle-login-button" style="float: right;">
+    </div>
     <div class="content">
       <div class="map-container">
-        
+
         <div id="map"></div>
       </div>
     </div>
@@ -33,6 +60,11 @@
   $(document).ready(function () {
 
 
+    $('.toggle-login').click(function () {
+      $('.login-modal').toggleClass('active');
+      $('.login-modal-background').toggleClass('active');
+    });
+
     mapboxgl.accessToken =
       'pk.eyJ1IjoibWFjbGFuIiwiYSI6ImNrbGM2ZjFsZTA1dGQyd3A3YW9ueWRsZWsifQ.ibaEUhzlZeeDcBfx07q8DQ';
     var map = new mapboxgl.Map({
@@ -42,7 +74,7 @@
       zoom: 14 // starting zoom
     });
 
-    
+
     map.addControl(
       new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
