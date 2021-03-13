@@ -208,7 +208,7 @@ body {
   height: 50px;
 }
 
-.login-modal{
+.auth-modal{
   position: absolute;
   width: 500px;
   height: 350px;
@@ -222,7 +222,7 @@ body {
   
 }
 
-.login-modal-background{
+.auth-modal-background{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -232,15 +232,15 @@ body {
   display: none;
 }
 
-.login-modal.active{
+.auth-modal.active{
   display: unset;
 }
 
-.login-modal-background.active{
+.auth-modal-background.active{
   display: unset;
 }
 
-.login-modal-content{
+.auth-modal-content{
   margin: 50px;
 }
 
@@ -252,6 +252,10 @@ body {
   cursor: pointer;
 }
 
+.toggle-register{
+  cursor: pointer;
+}
+
 .auth-bar{
   width: 100%;
   height: 50px;
@@ -259,4 +263,8 @@ body {
 
 #toggle-login-button{
   margin: 10px;
+}
+
+#toggle-register-button{
+  margin:10px;
 }

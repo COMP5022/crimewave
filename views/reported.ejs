@@ -6,6 +6,7 @@
 
 <body>
     <div id="wrapper">
+			<%- include ('../partials/auth.ejs') %>
         <%- include ('../partials/sidebar.ejs') %>
         <div class="content">
             <div class="reported-table">
@@ -21,72 +22,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Violent</td>
+                           <tr>
+                            <td><%- data.type %></td>
                             <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>14th January 2020</td>
-                            <td>22nd January 2020</td>
-                            <td>
-                                <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
-                                <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>
-                                <a class="table-option" title="Add Note"><i class="fas fa-sticky-note"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Violent</td>
-                            <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>2nd February 2020</td>
-                            <td>14th February 2020</td>
-                            <td>
-                                <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
-                                <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>
-                                <a class="table-option" title="Add Note"><i class="fas fa-sticky-note"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Violent</td>
-                            <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>17th March 2020</td>
-                            <td>17th April 2020</td>
-                            <td>
-                                <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
-                                <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>
-                                <a class="table-option" title="Add Note"><i class="fas fa-sticky-note"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Violent</td>
-                            <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>20th March 2020</td>
-                            <td>14th April 2020</td>
-                            <td>
-                                <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
-                                <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>
-                                <a class="table-option" title="Add Note"><i class="fas fa-sticky-note"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Violent</td>
-                            <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>13th May 2020</td>
-                            <td>19th June 2020</td>
-                            <td>
-                                <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
-                                <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>
-                                <a class="table-option" title="Add Note"><i class="fas fa-sticky-note"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Violent</td>
-                            <td>Oxford</td>
-                            <td>OX3</td>
-                            <td>1st October 2020</td>
-                            <td>2nd November 2020</td>
+                            <td><%- data.postcode %></td>
+                            <td><%- data.date %></td>
+                            <td><%- data.date %></td>
                             <td>
                                 <a class="table-option" title="View on Map"><i class="fas fa-map-marked-alt"></i></a>
                                 <a class="table-option" title="Delete"><i class="fas fa-trash"></i></a>

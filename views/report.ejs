@@ -6,42 +6,46 @@
 
 <body>
     <div id="wrapper">
+			<%- include ('../partials/auth.ejs') %>
         <%- include ('../partials/sidebar.ejs') %>
         <div class="content">
 
             <div class="reporting-container">
                 <h2 class="reporting-title">Report a Crime</h2>
                 <div class="reporting-content">
+                    <form action="/report" method="POST">
                     <div class="radio-options" style="font-size: 20px;">
                         Crime Type:
                         <div style="font-size: 16px;">
                             <div class=" form-check crime-type-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio1"
+                                    value="Violent">
                                 <label class="form-check-label" for="inlineRadio1">Violent</label>
                             </div>
                             <div class="form-check crime-type-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio2"
+                                    value="Robbery">
                                 <label class="form-check-label" for="inlineRadio2">Robbery</label>
                             </div>
                             <div class="form-check crime-type-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio3"
+                                    value="Sexual Assault">
                                 <label class="form-check-label" for="inlineRadio3">Sexual Assault</label>
                             </div>
                             <div class="form-check crime-type-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
+                                <input class="form-check-input" type="radio" name="type" id="inlineRadio3"
+                                    value="Other">
                                 <label class="form-check-label" for="inlineRadio3">Other</label>
                             </div>
                         </div>
                     </div>
 
-                    <span class="sectionsTitles" style="font-size: 20px;">Postcode: </span> <input type="text" class="form-control reporting-inputs" placeholder="Postcode">
-                    <span class="sectionsTitles" style="font-size: 20px;">Where: </span> <input type="text" class="form-control reporting-inputs" placeholder="Describe where you saw the crime">
-                    <span class="sectionsTitles" style="font-size: 20px;">Description: </span> <textarea id="ML" class="form-control reporting-inputs" placeholder="Describe what you saw take place"></textarea>
-                    <span class="sectionsTitles" style="font-size: 20px;">Persons: </span> <textarea class="form-control reporting-inputs" placeholder="Can you describe any of the people involved?"></textarea> 
+                    <span class="sectionsTitles" style="font-size: 20px;">Postcode: </span> <input type="text" class="form-control reporting-inputs" placeholder="Postcode" name="postcode" >
+                    <span class="sectionsTitles" style="font-size: 20px;">Where: </span> <input type="text" class="form-control reporting-inputs" name="where" placeholder="Describe where you saw the crime">
+                    <span class="sectionsTitles" style="font-size: 20px;">Description: </span> <textarea id="ML" class="form-control reporting-inputs" name="description" placeholder="Describe what you saw take place"></textarea>
+                    <!-- <span class="sectionsTitles" style="font-size: 20px;">Persons: </span> <textarea class="form-control reporting-inputs" placeholder="Can you describe any of the people involved?"></textarea>  -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
                 </div>
             </div>
         </div>

@@ -1,0 +1,53 @@
+<% if (!locals.user) { %>
+
+<div class="auth-modal-background"></div>
+
+<div class="login-modal auth-modal">
+    <div class="auth-modal-content">
+        <form action="/users/login" method="POST">
+
+            <a class="toggle-login" style="float: right;"><i class="fas fa-window-close"></i></a>
+
+            <h3>Login</h3>
+            <%- include ('../partials/messages') %>
+            <input type="text" name="email" class="form-control login-input" placeholder="Email...">
+            <input type="password" name="password" class="form-control login-input" placeholder="Password...">
+
+            <button type="submit" class="login-button">Login</button>
+
+        </form>
+    </div>
+</div>
+
+<div class="register-modal auth-modal">
+    <div class="auth-modal-content">
+
+        <a class="toggle-register" style="float: right;"><i class="fas fa-window-close"></i></a>
+
+        <h3>Register</h3>
+        <%- include ('../partials/messages') %>
+        <form action="/users/register" method="POST">
+            <input type="name" name="name" class="form-control register-input" placeholder="Username...">
+            <input type="email" name="email" class="form-control email-input" placeholder="Email...">
+
+            <input type="password" name="password" class="form-control password-input" placeholder="Password...">
+            <input type="password" name="password2" class="form-control password-input"
+                placeholder="Confirm Password...">
+
+
+            <button type="submit" class="register-button" value="Register">Register</button>
+        </form>
+    </div>
+</div>
+<% } %>
+
+<div class="auth-bar">
+    <% if (!locals.user) { %>
+        <input type="button" value="Login" class="toggle-login" id="toggle-login-button" style="float: right;">
+        <input type="button" value="Register" class="toggle-register" id="toggle-register-button" style="float: right;">
+    <% } else { %>
+        <form action="/users/logout">
+            <button type="submit" id="logout-button" style="float: right;">Logout</button>
+        </form>
+    <% } %>
+</div>

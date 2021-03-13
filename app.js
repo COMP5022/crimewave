@@ -1,34 +1,55 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var port = 80;
-var indexRouter = require('./routes/web');
-var usersRouter = require('./routes/users');
-
+const createError = require('http-errors');
+const path = require('path');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const session = require('express-session');
+const logger = require('morgan');
+const express = require('express');
+const port = 80;
 var app = express();
 
-// view engine setup
+//passport config:
+require('./config/passport')(passport)
+//mongoose
+mongoose.connect('mongodb://localhost:27017/CrimeWave', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('connected,,'))
+  .catch((err) => console.log(err));
+
+//EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+//BodyParser
+app.use(express.urlencoded({
+  extended: false
+}));
+//express session
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+})
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -38,6 +59,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Routes
+app.use('/', require('./routes/web'));
+app.use('/users', require('./routes/users'));
+app.use('/report', require('./routes/report'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
