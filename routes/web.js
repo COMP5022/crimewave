@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const Report = require("../models/report");
-const {ensureAuthenticated} = require("../config/auth.js")
+var Report = require("../models/report");
+var User = require("../models/user");
+var {ensureAuthenticated} = require("../config/auth.js");
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
@@ -35,17 +36,15 @@ router.get('/reported', ensureAuthenticated, function (req, res, next) {
 	MongoClient.connect(url, function(err, db) {
 		if (err) throw err;
 		var dbo = db.db("CrimeWave");
-		dbo.collection("reports").findOne({ user: req.user.id}, function(err, result) {
+		dbo.collection("reports").find({ user: req.user.id}, function(err, result) {
 		  if (err) throw err;
-		  console.log(result.user);
-		  console.log(result);
 		  db.close();
 		  res.render('reported',{
 			user: req.user,
 			data: result
 		});
 		});
-	  });
+	});
 	
 });
 
@@ -70,4 +69,27 @@ router.get('/contact', function (req, res, next) {
 	});
 });
 
+/**
+ * Route for Contact Page
+ * @author Maclan
+ */
+ router.get('/news-feed',ensureAuthenticated, function (req, res, next) {
+	res.render('newsFeed',{
+		user: req.user
+	});
+});
+
+/**
+ * Route for all public crime for news feed
+ * @author Maclan
+ */
+router.get('/get-public-crime', ensureAuthenticated, function (req, res, next){
+	Report.find({public: true}).sort('-date').exec((err, result) => {
+		if (err) {
+			res.send(err);
+		} else {
+			res.send(result);
+		}
+	});
+});
 module.exports = router;

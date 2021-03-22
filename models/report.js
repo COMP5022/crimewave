@@ -4,6 +4,10 @@ const ReportSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+        required: true
+    },
     type: {
         type: String,
         required: true
@@ -18,6 +22,10 @@ const ReportSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        required: true
+    },
+    public: {
+        type: Boolean,
         required: true
     },
     date: {

@@ -15,7 +15,6 @@ html{
 
 
 #wrapper {
-  overflow: hidden;
 }
 
 .content{
@@ -88,7 +87,7 @@ body {
 }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   width: 17em;
   height: 100%;
   top: 0;
@@ -268,3 +267,27 @@ body {
 #toggle-register-button{
   margin:10px;
 }
+
+.news-feed{
+  height: 100%;
+  width: 70%;
+  margin-left: 25%;
+}
+
+.news-feed-card{
+  margin: 10px 100px 10px 100px;
+  padding: 10px;
+  width: 700px;
+  border: solid grey 2px;
+  background-color: white;
+}
+
+.news-card-date{
+  color: grey;
+  font-size: 12px;
+}
+
+.news-feed-card-content{
+  margin: 20px;
+}
+

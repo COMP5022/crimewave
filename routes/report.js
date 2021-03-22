@@ -20,19 +20,26 @@ router.get('/', ensureAuthenticated,function (req, res, next) {
  * @author Maclan
  */
 router.post('/',(req,res)=>{
-    const {
+    let {
         type,
         postcode,
         where,
+        public_check,
         description
     } = req.body;
     let errors = [];
-
+    if(public_check == "on"){
+        public_check = true;
+    }else{
+        public_check = false;
+    }
     const newReport = new Report({
         user: req.user.id,
+        username: req.user.name,
         type: type,
         postcode: postcode,
         where: where,
+        public: public_check,
         description: description
     });
 
