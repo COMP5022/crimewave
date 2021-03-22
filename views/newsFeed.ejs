@@ -1,0 +1,55 @@
+<head>
+	<%- include ('../partials/javascript.ejs') %>
+	<%- include ('../partials/stylesheets.ejs') %>
+
+
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js">
+	</script>
+	<link rel="stylesheet"
+		href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+		type="text/css">
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<%- include ('../partials/sidebar.ejs') %>
+
+		<%- include ('../partials/auth.ejs') %>
+		<div class="content">
+			<div class="news-feed">
+
+            </div>
+		</div>
+
+
+
+</body>
+<script>
+	$(document).ready(function () {
+        $.get({
+            url: '/get-public-crime',
+            success: function(data){
+				for (let i = 0; i < data.length; i++) {
+					const element = data[i];
+					let d = new Date(element.date);
+					$('.news-feed').append('<div class="news-feed-card" id='+ element._id+'>');
+					$('#'+element._id).append('<span class="news-card-username">'+ element.username+'</span> - <span class="news-card-date">'+ d.toLocaleString()+'</span>');
+					$('#'+element._id).append('<hr><h4>'+ element.type+'</h4>');
+					$('#'+element._id).append('<p> Where - '+ element.where+'</p>');
+					$('#'+element._id).append('<p> Postcode - '+ element.postcode+'</p>');
+					$('#'+element._id).append('<p>'+ element.description+'</p>');
+					$('#'+element._id).append('<hr>');
+				}
+            },
+            failed: function(data){
+                console.log(data);
+            }
+        })
+	})
+</script>
