@@ -79,12 +79,21 @@ router.get('/contact', function (req, res, next) {
 	});
 });
 
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 /**
  * Route for all public crime for news feed
  * @author Maclan
  */
-router.get('/get-public-crime', ensureAuthenticated, function (req, res, next){
-	Report.find({public: true}).sort('-date').exec((err, result) => {
+router.post('/get-public-crime', ensureAuthenticated, function (req, res, next){
+	const {
+        postcode
+    } = req.body;
+	console.log(postcode);
+	const regex = new RegExp(escapeRegex(postcode), 'gi');
+	Report.find({public: true, postcode: regex}).sort('-date').exec((err, result) => {
 		if (err) {
 			res.send(err);
 		} else {

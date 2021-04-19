@@ -22,34 +22,56 @@
 
 		<%- include ('../partials/auth.ejs') %>
 		<div class="content">
+			<div class="input-group">
+				<div class="form-outline">
+					<input type="search" id="search-postcode" class="form-control" placeholder="Search Postcode" />
+				</div>
+			</div>
 			<div class="news-feed">
-
-            </div>
+				
+			</div>
 		</div>
-
-
 
 </body>
 <script>
 	$(document).ready(function () {
-        $.get({
-            url: '/get-public-crime',
-            success: function(data){
-				for (let i = 0; i < data.length; i++) {
-					const element = data[i];
-					let d = new Date(element.date);
-					$('.news-feed').append('<div class="news-feed-card" id='+ element._id+'>');
-					$('#'+element._id).append('<span class="news-card-username">'+ element.username+'</span> - <span class="news-card-date">'+ d.toLocaleString()+'</span>');
-					$('#'+element._id).append('<hr><h4>'+ element.type+'</h4>');
-					$('#'+element._id).append('<p> Where - '+ element.where+'</p>');
-					$('#'+element._id).append('<p> Postcode - '+ element.postcode+'</p>');
-					$('#'+element._id).append('<p>'+ element.description+'</p>');
-					$('#'+element._id).append('<hr>');
+
+		getCrimePosts()
+
+		$('#search-postcode').keyup(function (e) {
+			if (e.keyCode == 13) {
+				getCrimePosts();
+				$( ".news-feed" ).empty();
+			}
+		});
+
+		function getCrimePosts() {
+			let postcodeVal = $('#search-postcode').val();
+			$.ajax({
+				type: 'POST',
+				url: '/get-public-crime',
+				data: {
+					postcode: postcodeVal
+				},
+				success: function (data) {
+					for (let i = 0; i < data.length; i++) {
+						const element = data[i];
+						let d = new Date(element.date);
+						$('.news-feed').append('<div class="news-feed-card" id=' + element._id + '>');
+						$('#' + element._id).append('<span class="news-card-username">' + element
+							.username + '</span> - <span class="news-card-date">' + d
+							.toLocaleString() + '</span>');
+						$('#' + element._id).append('<hr><h4>' + element.type + '</h4>');
+						$('#' + element._id).append('<p> Where - ' + element.where + '</p>');
+						$('#' + element._id).append('<p> Postcode - ' + element.postcode + '</p>');
+						$('#' + element._id).append('<p>' + element.description + '</p>');
+						$('#' + element._id).append('<hr>');
+					}
+				},
+				failed: function (data) {
+					console.log(data);
 				}
-            },
-            failed: function(data){
-                console.log(data);
-            }
-        })
+			})
+		}
 	})
 </script>
